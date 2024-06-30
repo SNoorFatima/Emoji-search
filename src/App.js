@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import EmojiList from './components/EmojiList';
+import Footer from './components/Footer';
+import { emojiList } from './emojiData';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredEmojis, setFilteredEmojis] = useState([]);
+  const [hasSearched, setHasSearched] = useState(false);
+
+  const handleSearch = () => {
+    const results = emojiList.filter(emoji =>
+      emoji.message.includes(searchQuery)
+    );
+    setFilteredEmojis(results);
+    setHasSearched(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <SearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        handleSearch={handleSearch}
+      />
+      {hasSearched && <EmojiList emojis={filteredEmojis} />}
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

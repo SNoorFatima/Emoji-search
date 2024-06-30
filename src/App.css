@@ -1,38 +1,65 @@
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+.header h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search-bar input {
+  padding: 10px;
+  font-size: 1em;
+  width: 200px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search-bar button {
+  padding: 10px 15px;
+  font-size: 1em;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-bar button:hover {
+  background-color: #45a049;
+}
+
+.emoji-list {
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.emoji-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.emoji-symbol {
+  font-size: 1.5em;
+  margin-right: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.emoji-message {
+  font-size: 1em;
 }
+.footer {
+  margin-top: 20px;
+  font-size: 0.8em;
+}
+
