@@ -8,15 +8,13 @@ import './App.css';
 
 const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredEmojis, setFilteredEmojis] = useState([]);
-  const [hasSearched, setHasSearched] = useState(false);
+  const [filteredEmojis, setFilteredEmojis] = useState(emojiList);
 
   const handleSearch = () => {
     const results = emojiList.filter(emoji =>
       emoji.message.includes(searchQuery)
     );
     setFilteredEmojis(results);
-    setHasSearched(true);
   };
 
   return (
@@ -27,7 +25,8 @@ const App = () => {
         setSearchQuery={setSearchQuery}
         handleSearch={handleSearch}
       />
-      {hasSearched && <EmojiList emojis={filteredEmojis} />}
+      <EmojiList emojis={filteredEmojis} />
+      
       <Footer />
     </div>
   );

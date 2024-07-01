@@ -4,6 +4,7 @@ import '../App.css';
 const SearchBar = ({ searchQuery, setSearchQuery, handleSearch }) => {
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
+    handleSearch();
   };
 
   const handleKeyPress = (e) => {
@@ -21,7 +22,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, handleSearch }) => {
         onChange={handleChange}
         onKeyPress={handleKeyPress}
       />
-      <button onClick={handleSearch}>Search</button>
+      {/* <button onClick={handleSearch}>Search</button> */}
     </div>
   );
 };
